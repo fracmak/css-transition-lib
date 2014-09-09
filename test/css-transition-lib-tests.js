@@ -110,7 +110,6 @@
             easing = easing || 'linear';
             $qunitFixture.css({position: 'absolute'});
             $qunitFixture.css(property1, from1);
-            QUnit.expect(2);
             if (usejQuery) {
                 CSSAnimate.transitionCssName = null;
             }
@@ -118,18 +117,29 @@
                 document.oHidden = true;
                 CSSAnimate.animate($qunitFixture, property1, to1, time1, easing);
                 CSSAnimate.animate($qunitFixture, property2, to2, time2, easing);
-                QUnit.equal(
-                    $qunitFixture[0].style[$.camelCase(property1)],
-                    CSSAnimate._getCssNumber($.camelCase(property1), to1),
-                    '1st Transition RESOLVED'
-                );
-                QUnit.equal(
-                    $qunitFixture[0].style[$.camelCase(property2)],
-                    CSSAnimate._getCssNumber($.camelCase(property2), to2),
-                    '2nd Transition RESOLVED'
-                );
+                if (property1 !== property2) {
+                    QUnit.expect(2);
+                    QUnit.equal(
+                        $qunitFixture[0].style[$.camelCase(property1)],
+                        CSSAnimate._getCssNumber($.camelCase(property1), to1),
+                        '1st Transition RESOLVED'
+                    );
+                    QUnit.equal(
+                        $qunitFixture[0].style[$.camelCase(property2)],
+                        CSSAnimate._getCssNumber($.camelCase(property2), to2),
+                        '2nd Transition RESOLVED'
+                    );
+                } else {
+                    QUnit.expect(1);
+                    QUnit.equal(
+                        $qunitFixture[0].style[$.camelCase(property2)],
+                        CSSAnimate._getCssNumber($.camelCase(property2), to2),
+                        '2nd Transition RESOLVED'
+                    );
+                }
                 document.oHidden = false;
             } else {
+                QUnit.expect(2);
                 var firstAnimPromise = CSSAnimate.animate($qunitFixture, property1, to1, time1, easing);
                 setTimeout(function () {
                     CSSAnimate.animate($qunitFixture, property2, to2, time2, easing).done(function () {

@@ -12,6 +12,6 @@
     "unused": true,
     "eqnull": true,
     "browser": true,
-    "globals": { "jQuery": true, "console": true },
+    "globals": { "jQuery": true, "console": true, "define": true },
     "boss": true
 }

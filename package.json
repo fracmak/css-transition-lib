@@ -14,7 +14,9 @@
     "type": "git",
     "url": "https://github.com/fracmak/css-transition-lib.git"
   },
-  "author": "Jay Merrifield",
+  "author": {
+      "name": "Jay Merrifield"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fracmak/css-transition-lib/issues"

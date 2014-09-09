@@ -1,4 +1,4 @@
-/*! css-transition-lib - v0.0.1 - 2014-09-08
+/*! css-transition-lib - v0.0.2 - 2014-09-09
 * https://github.com/fracmak/css-transition-lib
 * Copyright (c) 2014 Jay Merrifield; Licensed MIT */
 (function(factory) {
@@ -44,7 +44,7 @@
         /*
          * Utility function that will animate an element using css or jquery animation
          * based on the capabilities of the browser
-         * @param {jQuery} el element to animate
+         * @param {jQuery|Array<jQuery>|Element} el element or elements to animate
          * @param {String} property property name to animate
          * @param {String} value property value to animate to
          * @param {Number} timeMs time in milliseconds the animation should take
@@ -120,7 +120,7 @@
                             defer.resolve();
                         }, 1);
                     } else {
-                        el.delay(delay || 0).animate(properties, {duration: timeMs, easing: easing, queue: queueName,
+                        el.delay(delay || 0, queueName).animate(properties, {duration: timeMs, easing: easing, queue: queueName,
                             done: function () {
                                 el.css(property, value);
                                 defer.resolve();

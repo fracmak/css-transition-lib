@@ -2,7 +2,6 @@
 bin/
 bin-debug/
 bin-release/
-dist/
 node_modules/
 
 # Other files and folders

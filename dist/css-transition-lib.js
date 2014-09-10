@@ -1,4 +1,4 @@
-/*! css-transition-lib - v0.0.3 - 2014-09-10
+/*! css-transition-lib - v0.0.4 - 2014-09-10
 * https://github.com/fracmak/css-transition-lib
 * Copyright (c) 2014 Jay Merrifield; Licensed MIT */
 (function(factory) {
@@ -93,7 +93,7 @@
                     // 0 is still allowed
                     timeMs = 40;
                 }
-                easing = this._normalizeEasing(easing, false);
+                easing = this._normalizeEasing(easing, this._easingMap);
                 camelProperty = $.camelCase(property);
                 value = this._getCssNumber(camelProperty, value);
                 if (delay) {
@@ -110,7 +110,7 @@
                 return $.Deferred().resolve();
             } else {
                 var properties = {};
-                easing = this._normalizeEasing(easing, true);
+                easing = this._normalizeEasing(easing, this._invert(this._easingMap));
                 properties[property] = value;
                 return $.Deferred(function(defer) {
                     var queueName = 'proganimate' + property;
@@ -189,21 +189,16 @@
          * @returns {String}
          * @private
          */
-        _normalizeEasing: function (easing, tojQuery) {
-            var entry, easingMap = this._easingMap;
+        _normalizeEasing: function (easing, easingMap) {
+            var entry;
             easing = easing || 'linear';
-            if (tojQuery) {
-                easingMap = this._invert(easingMap);
-            }
             entry = easingMap[easing];
             if (entry) {
-                // jQuery turned into CSS Easing
+                // convert to correct value
                 easing = entry;
-            } else if (easing.indexOf('cubic-bezier') !== -1) {
-                if (tojQuery) {
-                    easing = 'swing';
-                }
-            } else if (!this._easingMap[easing]) {
+            } else if (easing.indexOf('cubic-bezier') !== -1 && !easingMap.swing) {
+                easing = 'swing';
+            } else if (!this._invert(easingMap)[easing]) {
                 // don't know wtf this is
                 easing = 'linear';
             }

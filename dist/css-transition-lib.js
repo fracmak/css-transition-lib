@@ -1,4 +1,4 @@
-/*! css-transition-lib - v0.0.2 - 2014-09-09
+/*! css-transition-lib - v0.0.3 - 2014-09-10
 * https://github.com/fracmak/css-transition-lib
 * Copyright (c) 2014 Jay Merrifield; Licensed MIT */
 (function(factory) {
@@ -7,6 +7,7 @@
     if (typeof define === 'function' && define.amd) {
         define(['jquery'], function ($) {
             window.CSSAnimate = factory($);
+            return window.CSSAnimate;
         });
     } else {
         window.CSSAnimate = factory(window.jQuery || window.Zepto || window.$);

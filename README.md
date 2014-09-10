@@ -8,7 +8,7 @@ Usage
 ```javascript
 CSSAnimate.animate(els, property, value, timeMs, easing, delay);
 ```
-returns a jQuery [Promise](http://api.jquery.com/Types/#Promise) object that resolves when the animation completes or rejects if the animation is stopped or interrupted by the css property being manually changed
+returns a jQuery [Promise](http://api.jquery.com/Types/#Promise) object that resolves when the animation completes or rejects if the animation is stopped or interrupted by either a conflicting animation, or the css property being manually changed
 
 The function accepts multiple els or a single element. 
 

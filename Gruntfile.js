@@ -41,7 +41,21 @@ module.exports = function (grunt) {
             }
         },
         qunit: {
+            options: {
+                coverage: {
+                    src: ['lib/**/*.js'],
+                    instrumentedFiles: 'temp/',
+                    htmlReport: 'report/coverage',
+                    coberturaReport: 'report/',
+                    linesThresholdPct: 85
+                }
+            },
             files: ['test/**/*.html']
+        },
+        qunit_junit: {
+            options: {
+                dest: 'report/'
+            }
         },
         watch: {
             gruntfile: {
@@ -61,9 +75,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-qunit-istanbul');
+    grunt.loadNpmTasks('grunt-qunit-junit');
 
     // Default task
-    grunt.registerTask('test', ['jshint', 'qunit']);
+    grunt.registerTask('test', ['jshint', 'qunit_junit', 'qunit']);
     grunt.registerTask('build', ['concat', 'uglify']);
     grunt.registerTask('default', ['test', 'build']);
 };

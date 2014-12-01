@@ -3,6 +3,7 @@ bin/
 bin-debug/
 bin-release/
 node_modules/
+bower_components/
 
 # Other files and folders
 .settings/

@@ -1,0 +1,15 @@
+{
+    "name": "css-transition-lib",
+    "version": "0.0.4",
+    "main": "dist/css-transition-lib.js",
+    "dependencies": {
+        "jquery": ">=1.6"
+    },
+    "ignore": [
+        "test"
+    ],
+    "devDependencies": {
+        "jquery-ui": "1.11.2",
+        "qunit": "1.15.0"
+    }
+}

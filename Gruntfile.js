@@ -45,8 +45,8 @@ module.exports = function (grunt) {
                 coverage: {
                     src: ['lib/**/*.js'],
                     instrumentedFiles: 'temp/',
-                    htmlReport: 'report/coverage',
-                    coberturaReport: 'report/',
+                    htmlReport: 'shippable/codecoverage/',
+                    coberturaReport: 'shippable/codecoverage/',
                     linesThresholdPct: 85
                 }
             },
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
         },
         qunit_junit: {
             options: {
-                dest: 'report/'
+                dest: 'shippable/testresults/'
             }
         },
         watch: {

@@ -41,16 +41,6 @@ module.exports = function (grunt) {
             }
         },
         qunit: {
-            options: {
-                coverage: {
-                    src: ['lib/**/*.js'],
-                    instrumentedFiles: 'temp/',
-                    htmlReport: 'reports/coverage/',
-                    coberturaReport: 'reports/coverage/',
-                    lcovReport: 'reports/coverage',
-                    linesThresholdPct: 85
-                }
-            },
             files: ['test/**/*.html']
         },
         qunit_junit: {
@@ -87,7 +77,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-qunit-istanbul');
     grunt.loadNpmTasks('grunt-qunit-junit');
     grunt.loadNpmTasks('grunt-coveralls');
 

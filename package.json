@@ -17,6 +17,7 @@
   },
   "scripts": {
     "postinstall": "node node_modules/bower/bin/bower install",
+    "ci": "grunt test && grunt coveralls",
     "test": "grunt test"
   },
   "repository": {

@@ -6,5 +6,4 @@ node_js:
   - 0.10.28
 
 script:
-  - npm test
-  - grunt coveralls
+  - npm run-script ci

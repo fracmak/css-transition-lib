@@ -1,7 +1,7 @@
 css-transition-lib
 ==================
 
-[![Build Status](https://travis-ci.org/fracmak/css-transition-lib.svg)](https://travis-ci.org/fracmak/css-transition-lib)
+[![Build Status](https://travis-ci.org/fracmak/css-transition-lib.svg)](https://travis-ci.org/fracmak/css-transition-lib) [![Coverage Status](https://coveralls.io/repos/fracmak/css-transition-lib/badge.png?branch=master)](https://coveralls.io/r/fracmak/css-transition-lib?branch=master)
 
 Provides a simple animation library for css transitions using the power of jquery promises. Also falls back to jQuery's animate function when hardware or browser doesn't support the css animation. Behavior of api is the same between css transitions and jQuery's animate() function for ease of use.
 

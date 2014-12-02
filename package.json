@@ -12,12 +12,12 @@
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-coveralls": "^1.0.0",
-    "grunt-qunit-junit": "^0.1.1",
-    "istanbul": "^0.3.2"
+    "grunt-qunit-istanbul": "^0.4.5",
+    "grunt-qunit-junit": "^0.1.1"
   },
   "scripts": {
     "postinstall": "node node_modules/bower/bin/bower install",
-    "ci": "istanbul cover -- grunt test && grunt coveralls",
+    "ci": "grunt test && grunt coveralls",
     "test": "grunt test"
   },
   "repository": {

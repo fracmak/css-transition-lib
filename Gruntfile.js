@@ -45,8 +45,9 @@ module.exports = function (grunt) {
                 coverage: {
                     src: ['lib/**/*.js'],
                     instrumentedFiles: 'temp/',
-                    htmlReport: 'shippable/codecoverage/',
-                    coberturaReport: 'shippable/codecoverage/',
+                    htmlReport: 'reports/coverage/',
+                    coberturaReport: 'reports/coverage/',
+                    lcovReport: 'reports/coverage',
                     linesThresholdPct: 85
                 }
             },
@@ -54,7 +55,18 @@ module.exports = function (grunt) {
         },
         qunit_junit: {
             options: {
-                dest: 'shippable/testresults/'
+                dest: 'reports/tests/'
+            }
+        },
+        coveralls: {
+            options: {
+                // LCOV coverage file relevant to every target
+                src: 'reports/coverage/lcov.info',
+
+                // When true, grunt-coveralls will only print a warning rather than
+                // an error, to prevent CI builds from failing unnecessarily (e.g. if
+                // coveralls.io is down). Optional, defaults to false.
+                force: false
             }
         },
         watch: {
@@ -77,6 +89,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-qunit-istanbul');
     grunt.loadNpmTasks('grunt-qunit-junit');
+    grunt.loadNpmTasks('grunt-coveralls');
 
     // Default task
     grunt.registerTask('test', ['jshint', 'qunit_junit', 'qunit']);

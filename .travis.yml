@@ -4,3 +4,6 @@ language: node_js
 # version numbers, testing against two versions of node
 node_js:
   - 0.10.28
+
+after_script:
+  - grunt coveralls

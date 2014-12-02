@@ -4,7 +4,7 @@ bin-debug/
 bin-release/
 node_modules/
 bower_components/
-shippable/
+reports/
 
 # Other files and folders
 .settings/

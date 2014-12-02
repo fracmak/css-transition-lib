@@ -59,14 +59,11 @@ module.exports = function (grunt) {
             }
         },
         coveralls: {
-            options: {
-                // LCOV coverage file relevant to every target
+            coverage: {
                 src: 'reports/coverage/lcov.info',
-
-                // When true, grunt-coveralls will only print a warning rather than
-                // an error, to prevent CI builds from failing unnecessarily (e.g. if
-                // coveralls.io is down). Optional, defaults to false.
-                force: false
+                options: {
+                    force: true
+                }
             }
         },
         watch: {
@@ -84,7 +81,6 @@ module.exports = function (grunt) {
     // These plugins provide necessary tasks
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-qunit-istanbul');

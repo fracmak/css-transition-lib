@@ -5,5 +5,6 @@ language: node_js
 node_js:
   - 0.10.28
 
-after_script:
+script:
+  - npm test
   - grunt coveralls
